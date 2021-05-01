@@ -11,15 +11,13 @@ export class TodoList{
 
     deleteTodo(id){
        this.todo = this.todos.filter(todo => todo.id != id);
-       
     }
 
     todoComplete(id){
-
     }
 
     deleteAllTodoCompleted(){
-        
+        this.todo = this.todos.filter(todo => !todo.completado);
     }
 
     markCompleted(id){
