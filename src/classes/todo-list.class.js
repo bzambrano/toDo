@@ -10,7 +10,8 @@ export class TodoList{
     }
 
     deleteTodo(id){
-
+       this.todo = this.todos.filter(todo => todo.id != id);
+       
     }
 
     todoComplete(id){
@@ -21,8 +22,13 @@ export class TodoList{
         
     }
 
-    marcarCompletado(){
-        
+    markCompleted(id){
+        for(const todo of this.todos){
+            if(todo.id  == id){
+                todo.completado = ! todo.completado;
+                break;
+            }
+        }
     }
 
 
