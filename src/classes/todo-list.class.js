@@ -1,3 +1,5 @@
+import {Todo} from './index';
+
 export class TodoList{
 
     constructor(){
@@ -39,11 +41,11 @@ export class TodoList{
     }
 
     loadLocaStorage(){
-
-
         this.todos = (localStorage.getItem('todo'))?
-        JSON.parse(localStorage.getItem('todo')):
-        [];  
+            JSON.parse(localStorage.getItem('todo')):
+            [];
+            
+        this.todos = this.todos.map( Todo.fromJsom );
     }
 
 
