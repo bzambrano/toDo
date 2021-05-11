@@ -36,7 +36,6 @@ txtInput.addEventListener('keyup', (event) =>{
 
     if( event.keyCode === 13 && txtInput.value.length > 0 ){
         
-        console.log(txtInput.value);
         const nuevoTodo = new Todo( txtInput.value);
         todoList.newTodo(nuevoTodo);
 
