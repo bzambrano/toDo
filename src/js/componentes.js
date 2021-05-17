@@ -8,6 +8,9 @@ const txtInput                = document.querySelector('.new-todo');
 const btnDeleteAllCompleted   = document.querySelector('.clear-completed');
 const ulFiltros               = document.querySelector('.filters');
 const anchortFiltros          = document.querySelectorAll('.filtro');
+const spanCountPendingCounter = document.querySelector('.todo-count');
+
+
 
 export const createdTodoHtml =(todo) => {
 
@@ -31,6 +34,10 @@ export const createdTodoHtml =(todo) => {
     return div.firstElementChild;
 }
 
+const updatePendingCounter =()=>{
+    spanCountPendingCounter.innerText = `${todoList.getPending()} pendiente(s)`;
+}
+
 // Eventos
 txtInput.addEventListener('keyup', (event) =>{
 
@@ -42,7 +49,7 @@ txtInput.addEventListener('keyup', (event) =>{
         createdTodoHtml(nuevoTodo);
         txtInput.value = '';
 
-    }
+    }updatePendingCounter();
 
 });
 
@@ -61,7 +68,7 @@ txtInput.addEventListener('keyup', (event) =>{
 
             todoList.deleteTodo(todoId);
             divTodoList.removeChild(todoElemento);
-        }
+        }updatePendingCounter();
     });
 
     btnDeleteAllCompleted.addEventListener('click',()=>{
@@ -107,10 +114,4 @@ txtInput.addEventListener('keyup', (event) =>{
             
             }
         }
-    });
-
-    
-    divTodoList.addEventListener('change'||'click', (event) =>{
-        console.log('Cambios en las lista');
-        console.log( todoList.getPending());
     });
