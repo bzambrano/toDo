@@ -8,6 +8,8 @@ const txtInput                = document.querySelector('.new-todo');
 const btnDeleteAllCompleted   = document.querySelector('.clear-completed');
 const ulFiltros               = document.querySelector('.filters');
 const anchortFiltros          = document.querySelectorAll('.filtro');
+const spanCountPendientes     = document.querySelectorAll('.todo-count');
+
 
 export const createdTodoHtml =(todo) => {
 
@@ -107,4 +109,10 @@ txtInput.addEventListener('keyup', (event) =>{
             
             }
         }
+    });
+
+    
+    divTodoList.addEventListener('change'||'click', (event) =>{
+        console.log('Cambios en las lista');
+        console.log( todoList.getPending());
     });

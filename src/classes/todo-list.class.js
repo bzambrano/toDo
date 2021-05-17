@@ -48,5 +48,11 @@ export class TodoList{
         this.todos = this.todos.map( Todo.fromJsom );
     }
 
+    getPending(){
+        const pending = JSON.parse(localStorage.getItem('todo'));
+        console.log(pending);
+        return pending.filter(obj =>  obj.completado == false).length;
+
+    }
 
 }
