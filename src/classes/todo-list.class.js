@@ -14,7 +14,7 @@ export class TodoList{
     }
 
     deleteTodo(id){
-       this.todo = this.todos.filter(todo => todo.id != id);
+       this.todos = this.todos.filter(todo => todo.id != id);
        this.saveLocaStorage();
     }
 
